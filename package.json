@@ -1,0 +1,24 @@
+{
+  "name": "chooseyourstory",
+  "version": "1.0.0",
+  "scripts": {
+    "serve": "ts-node server/index -p server/tsconfig.json"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@types/es6-shim": "^0.31.32",
+    "@types/jsonwebtoken": "^7.2.0",
+    "@types/koa": "^2.0.37",
+    "@types/koa-bodyparser": "^3.0.23",
+    "@types/koa-router": "^7.0.21",
+    "@types/koa-static": "^2.0.22",
+    "@types/node": "^7.0.4",
+    "jsonwebtoken": "^7.2.1",
+    "koa": "^2.0.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-router": "^7.1.0",
+    "koa-static": "^3.0.0",
+    "ts-node": "^2.0.0",
+    "typescript": "^2.1.5"
+  }
+}
