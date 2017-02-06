@@ -2,7 +2,8 @@
   "name": "chooseyourstory",
   "version": "1.0.0",
   "scripts": {
-    "client": "webpack-dev-server --config config/webpack.config.dev.js --inline --hot --open"
+    "client": "webpack-dev-server --config config/webpack.config.dev.js --inline --hot --open",
+    "start": "npm run client"
   },
   "license": "ISC",
   "dependencies": {
