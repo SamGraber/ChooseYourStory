@@ -1,6 +1,7 @@
 import * as Koa from 'koa';
 import * as bodyParser from 'koa-bodyparser';
 import * as serve from 'koa-static';
+import * as cors from 'koa-cors';
 import { router } from './api';
 // import { authenticate } from './api/login';
 
@@ -13,6 +14,7 @@ app.use(errorHandler());
 app.use(serve(__dirname));
 
 app.use(bodyParser());
+app.use(cors());
 
 app.use(router.routes())
    .use(router.allowedMethods());
