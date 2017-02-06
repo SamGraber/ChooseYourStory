@@ -8,6 +8,7 @@ export class App extends React.Component<any, any> {
 			<div>
 				<h1>Hello World!</h1>
 				<Login />
+				{this.props.children}
 			</div>
 		);
 	}
