@@ -33,6 +33,10 @@ module.exports = {
 			inject: true,
 		}),
 	],
+	devServer: {
+		port: 8080,
+		historyApiFallback: true,
+	},
 	module: {
 		loaders: [
 			{ test: /\.tsx?$/, exclude: /node_modules/, loaders: ['awesome-typescript-loader'] },
