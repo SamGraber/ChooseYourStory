@@ -6,3 +6,6 @@ declare interface IFetch {
 }
 
 declare const Request: any;
+declare const Headers: any;
+
+declare interface Headers {}
