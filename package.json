@@ -7,10 +7,12 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@types/bootstrap": "^3.3.32",
     "@types/es6-shim": "^0.31.32",
     "@types/react": "^15.0.6",
     "@types/react-dom": "^0.14.22",
     "awesome-typescript-loader": "^3.0.0-beta.18",
+    "bootstrap": "^3.3.7",
     "css-loader": "0.25.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "2.22.0",

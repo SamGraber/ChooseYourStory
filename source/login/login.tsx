@@ -10,8 +10,8 @@ export class Login extends React.Component<any, { loggedIn: boolean }> {
 	render(): any {
 		return (
 			this.state.loggedIn
-			? <button onClick={logout}>Logout</button>
-			: <button onClick={showLogin}>Login</button>
+			? <button className="btn btn-default" onClick={logout}>Logout</button>
+			: <button className="btn btn-default" onClick={showLogin}>Login</button>
 		);
 	}
 }
