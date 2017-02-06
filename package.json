@@ -2,7 +2,8 @@
   "name": "chooseyourstory",
   "version": "1.0.0",
   "scripts": {
-    "serve": "ts-node server/index -p server/tsconfig.json"
+    "client": "webpack-dev-server --config config/webpack.config.dev.js --inline --hot --open",
+    "server": "ts-node server/index -p server/tsconfig.json"
   },
   "license": "ISC",
   "dependencies": {
@@ -13,12 +14,28 @@
     "@types/koa-router": "^7.0.21",
     "@types/koa-static": "^2.0.22",
     "@types/node": "^7.0.4",
+    "@types/react": "^15.0.6",
+    "@types/react-dom": "^0.14.22",
+    "awesome-typescript-loader": "^3.0.0-beta.18",
+    "css-loader": "0.25.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "2.22.0",
     "jsonwebtoken": "^7.2.1",
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.2.0",
     "koa-router": "^7.1.0",
     "koa-static": "^3.0.0",
+    "npm-run-all": "3.1.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "source-map-loader": "^0.1.6",
+    "style-loader": "0.13.1",
     "ts-node": "^2.0.0",
-    "typescript": "^2.1.5"
+    "typescript": "^2.1.5",
+    "webpack": "2.1.0-beta.21",
+    "webpack-dev-middleware": "1.8.4",
+    "webpack-dev-server": "2.1.0-beta.8",
+    "webpack-hot-middleware": "2.13.0",
+    "webpack-md5-hash": "0.0.5"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "name": "chooseyourstory",
+  "version": "1.0.0",
+  "license": "ISC",
+  "dependencies": {
+    "@types/es6-shim": "^0.31.32",
+    "@types/react": "^15.0.6",
+    "@types/react-dom": "^0.14.22"
+  }
+}
