@@ -2,11 +2,11 @@ import getBaseUrl from './baseUrl';
 
 const baseUrl = getBaseUrl();
 
-export function get<T>(url): Promise<T> {
+export function get<T>(url: string): Promise<T> {
 	return fetch(baseUrl + url).then(onSuccess, onError);
 }
 
-export function del(url): Promise<void> {
+export function del(url: string): Promise<void> {
 	const request = new Request(baseUrl + url, {
 		method: 'DELETE',
 	});

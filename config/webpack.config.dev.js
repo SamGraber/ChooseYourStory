@@ -11,12 +11,12 @@ module.exports = {
 		extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
 	},
 	entry: {
-		vendor: path.resolve(__dirname, '../client/vendor'),
-		main: path.resolve(__dirname, '../client/index'),
+		vendor: path.resolve(__dirname, '../source/vendor'),
+		main: path.resolve(__dirname, '../source/index'),
 	},
 	target: 'web',
 	output: {
-		path: path.resolve(__dirname, '../client'),
+		path: path.resolve(__dirname, '../source'),
 		publicPath: '/',
 		filename: '[name].js',
 	},
@@ -29,7 +29,7 @@ module.exports = {
 
 		// Create HTML file that includes reference to bundled JS.
 		new HtmlWebpackPlugin({
-			template: 'client/index.html',
+			template: 'source/index.html',
 			inject: true,
 		}),
 	],

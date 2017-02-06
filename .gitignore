@@ -1,6 +1,5 @@
 # NPM packages
 /node_modules/
-/config/node_modules/
 
 # Editor settings
 /.vscode/
