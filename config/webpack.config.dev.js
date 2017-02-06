@@ -8,7 +8,7 @@ module.exports = {
 	noInfo: false,
 	resolve: {
 		// Add '.ts' and '.tsx' as resolvable extensions.
-		extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
+		extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
 	},
 	entry: {
 		vendor: path.resolve(__dirname, '../source/vendor'),
