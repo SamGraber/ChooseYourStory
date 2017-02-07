@@ -1,4 +1,9 @@
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
 import { get } from './http';
+
+const _currentUser$ = new BehaviorSubject<IUser>(null);
+export const currentUser$ = _currentUser$.asObservable();
 
 export interface IUser {
 	oauthId: string;
@@ -14,4 +19,8 @@ export function getProfile(profile: any): Promise<IUser> {
 				&name=${profile.name}
 				&picture=${profile.picture}`;
 	return get(profileUrl);
+}
+
+export function setCurrentUser(user: IUser): void {
+	_currentUser$.next(user);
 }

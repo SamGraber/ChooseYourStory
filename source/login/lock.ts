@@ -1,17 +1,14 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { key, authDomain } from '../../config/authConfig';
-import { getProfile, IUser } from '../api/user';
+import { getProfile, IUser, setCurrentUser } from '../api/user';
 
 declare const Auth0Lock: any;
-
-const _currentUser$ = new BehaviorSubject<IUser>(null);
-export const currentUser$ = _currentUser$.asObservable();
 
 const lock = new Auth0Lock(key, authDomain);
 
 if (!!getToken()) {
 	const profile = JSON.parse(localStorage.getItem('cys_profile'));
-	_currentUser$.next(profile);
+	setCurrentUser(profile);
 }
 
 lock.on('authenticated', function(authResult: { idToken: string }) {
@@ -24,7 +21,7 @@ lock.on('authenticated', function(authResult: { idToken: string }) {
 		getProfile(profile).then(result => {
 			console.log(result);
 			localStorage.setItem('cys_profile', JSON.stringify(result));
-			_currentUser$.next(result);
+			setCurrentUser(result);
 		});
 	});
 });
@@ -34,7 +31,7 @@ export function showLogin(): void {
 }
 
 export function logout(): void {
-	_currentUser$.next(null);
+	setCurrentUser(null);
 	localStorage.removeItem('id_token');
 }
 

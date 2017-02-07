@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import { currentUser$, showLogin, logout } from './lock';
+import { showLogin, logout } from './lock';
+import { currentUser$ } from '../api/user';
 
 export class Login extends React.Component<any, { loggedIn: boolean }> {
 	componentWillMount(): void {
