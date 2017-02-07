@@ -36,7 +36,7 @@ export class App extends React.Component<any, IAppState> {
 			<div className="container">
 				<nav className="navbar">
 					<div className="navbar-header">
-						<a className="navbar-brand">Choose your story</a>
+						<Link className="navbar-brand" to="/">Choose your story</Link>
 					</div>
 					<ul className="nav navbar-nav">
 						<li><Link to="/myfriends">My Friends</Link></li>
