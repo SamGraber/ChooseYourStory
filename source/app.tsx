@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Link } from 'react-router';
 
 import { Login } from './login/login';
-import { get } from './api/http';
 import { currentUser$, IUser } from './api/user';
 
 export interface IAppState {
@@ -45,7 +44,6 @@ export class App extends React.Component<any, IAppState> {
 					{this.profile(<li><Login /></li>)}
 				</nav>
 				{this.props.children}
-				<button onClick={() => get('api/users').then(console.log)}>Test</button>
 			</div>
 		);
 	}
