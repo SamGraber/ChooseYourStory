@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import { authenticated$, showLogin, logout } from './lock';
+import { currentUser$, showLogin, logout } from './lock';
 
 export class Login extends React.Component<any, { loggedIn: boolean }> {
 	componentWillMount(): void {
-		authenticated$.subscribe(authenticated => this.setState({ loggedIn: authenticated }));
+		currentUser$.subscribe(profile => this.setState({ loggedIn: !!profile }));
 	}
 
 	render(): any {
