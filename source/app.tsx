@@ -18,7 +18,7 @@ export class App extends React.Component<any, IAppState> {
 		if (this.state.currentUser) {
 			return (
 				<ul className="nav navbar-nav navbar-right">
-					<li><a href="#">{this.state.currentUser.name}</a></li>
+					<li><Link to="/profile">{this.state.currentUser.name}</Link></li>
 					<li><img className="thumbnail" src={this.state.currentUser.picture} /></li>
 					{addons}
 				</ul>
