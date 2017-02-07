@@ -1,3 +1,27 @@
+body {
+	margin: 2em;
+}
+
+/* color */
+body, .list-group-item { 
+	background-color: #90C3D4;
+	/*color: #26142B;*/
+	color: #0A4747;
+}
+.nav li a:hover
+, .navbar .navbar-brand:hover
+, .list-group-item.active:hover {
+	background-color: #98DEF6;
+}
+.list-group-item {
+	border: 1px solid #0A4747;
+}
+
+body, input[text], button { 
+	/*color: #888; */
+	font-family: Cambria, Georgia; 
+}
+
 /* Header styles */
 img.thumbnail {
 	height: 45;
