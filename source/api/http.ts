@@ -1,5 +1,5 @@
 import getBaseUrl from './baseUrl';
-import { getToken } from '../login/lock';
+import { getToken, showLogin } from '../login/lock';
 
 const baseUrl = getBaseUrl();
 
@@ -30,9 +30,18 @@ export function makeAuthHeader(): Headers {
 }
 
 function onSuccess(response: any): any {
+	if (!response.ok) {
+		return onError(response);
+	}
+	
 	return response.json();
 }
 
 function onError(error: any): void {
+	if (error.status === 401) {
+		showLogin();
+		return;
+	}
+	
 	console.log(error); // eslint-disable-line no-console
 }
