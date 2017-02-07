@@ -40,6 +40,7 @@ export class App extends React.Component<any, IAppState> {
 					</div>
 					<ul className="nav navbar-nav">
 						<li><Link to="/myfriends">My Friends</Link></li>
+						<li><Link to="/findfriends">Find Friends</Link></li>
 					</ul>
 					{this.profile(<li><Login /></li>)}
 				</nav>

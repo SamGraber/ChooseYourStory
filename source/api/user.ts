@@ -21,6 +21,11 @@ export function getProfile(profile: any): Promise<IUser> {
 	return get(profileUrl);
 }
 
+export function getUsers(): Promise<IUser[]> {
+	const url = `api/users`;
+	return get(url);
+}
+
 export function setCurrentUser(user: IUser): void {
 	_currentUser$.next(user);
 }

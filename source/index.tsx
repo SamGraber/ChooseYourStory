@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 
 import { App, Welcome } from './app';
 import { MyFriends } from './friends/myFriends';
+import { FindFriends } from './friends/findFriends';
 import { Profile } from './profile/profile'
 
 render(
@@ -12,6 +13,7 @@ render(
 			<IndexRoute component={Welcome} />
 			<Route path="myfriends" component={MyFriends} />
 			<Route path="profile" component={Profile} />
+			<Route path="findfriends" component={FindFriends} />
 		</Route>
 	</Router>,
 	document.getElementById('container')
