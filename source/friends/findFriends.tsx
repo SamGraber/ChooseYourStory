@@ -9,8 +9,10 @@ export class FindFriends extends React.Component<any, { users: IUser[] }> {
 
 	renderUser(user: IUser): any {
 		return (
-			<li className="list-group-item">
-				{user.name} <img className="list-item-pic pull-right" src={user.picture} />
+			<li className="list-group-item row">
+				<div className="col-xs-3">{user.name}</div>
+				<div className="col-xs-5"><button className="btn btn-default btn-xs">+ Add Friend</button></div>
+				<div className="col-xs-4"><img className="list-item-pic pull-right" src={user.picture} /></div>
 			</li>
 		);
 	}
