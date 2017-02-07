@@ -1,5 +1,6 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { key, authDomain } from '../../config/authConfig';
+import { get } from '../api/http';
 
 declare const Auth0Lock: any;
 
@@ -14,8 +15,15 @@ lock.on('authenticated', function(authResult: { idToken: string }) {
 			console.error('There was a problem with the login:', error);
 			return;
 		}
-		_authenticated$.next(true);
 		localStorage.setItem('id_token', authResult.idToken);
+		const profileUrl = `api/profile
+				?oauthId=${profile.user_id}
+				&name=${profile.name}
+				&picture=${profile.picture}`;
+		get(profileUrl).then(result => {
+			console.log(result);
+			_authenticated$.next(true);
+		});
 	});
 });
 
