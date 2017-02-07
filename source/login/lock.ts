@@ -11,8 +11,8 @@ if (!!getToken()) {
 	setCurrentUser(profile);
 }
 
-lock.on('authenticated', function(authResult: { idToken: string }) {
-	lock.getProfile(authResult.idToken, function(error: any, profile: any) {
+lock.on('authenticated', function(authResult: { accessToken: string, idToken: string }) {
+	lock.getUserInfo(authResult.accessToken, function(error: any, profile: any) {
 		if (error) {
 			console.error('There was a problem with the login:', error);
 			return;
