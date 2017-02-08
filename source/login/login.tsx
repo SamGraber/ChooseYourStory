@@ -2,10 +2,11 @@ import * as React from 'react';
 
 import { showLogin, logout } from './lock';
 import { currentUser$ } from '../api/user';
+import { watch } from '../services/reactHelpers';
 
 export class Login extends React.Component<any, { loggedIn: boolean }> {
 	componentWillMount(): void {
-		currentUser$.subscribe(profile => this.setState({ loggedIn: !!profile }));
+		watch(currentUser$, profile => this.setState({ loggedIn: !!profile }), this);
 	}
 
 	render(): any {

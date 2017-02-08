@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 
 import { Login } from './login/login';
 import { currentUser$, IUser } from './api/user';
+import { watch } from './services/reactHelpers';
 
 export interface IAppState {
 	currentUser: IUser
@@ -10,7 +11,7 @@ export interface IAppState {
 
 export class App extends React.Component<any, IAppState> {
 	componentWillMount(): void {
-		currentUser$.subscribe(currentUser => this.setState({ currentUser }));
+		watch(currentUser$, currentUser => this.setState({ currentUser }), this);
 	}
 
 	renderIfLoggedIn(makeElement: { (): any }): any {
