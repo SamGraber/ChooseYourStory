@@ -13,21 +13,10 @@ export class App extends React.Component<any, IAppState> {
 		currentUser$.subscribe(currentUser => this.setState({ currentUser }));
 	}
 
-	profile(addons: any): any {
-		if (this.state.currentUser) {
-			return (
-				<ul className="nav navbar-nav navbar-right">
-					<li><Link to="/profile">{this.state.currentUser.name}</Link></li>
-					<li><img className="thumbnail" src={this.state.currentUser.picture} /></li>
-					{addons}
-				</ul>
-			);
-		}
-		return (
-			<ul className="nav navbar-nav navbar-right">
-				{addons}
-			</ul>
-		);
+	renderIfLoggedIn(makeElement: { (): any }): any {
+		return this.state && this.state.currentUser
+			? makeElement()
+			: null;
 	}
 	
 	render(): any {
@@ -41,7 +30,11 @@ export class App extends React.Component<any, IAppState> {
 						<li><Link to="/myfriends">My Friends</Link></li>
 						<li><Link to="/findfriends">Find Friends</Link></li>
 					</ul>
-					{this.profile(<li><Login /></li>)}
+					<ul className="nav navbar-nav navbar-right">
+						{this.renderIfLoggedIn(() => <li><Link to="/profile">{this.state.currentUser.name}</Link></li>)}
+						{this.renderIfLoggedIn(() => <li><img className="thumbnail" src={this.state.currentUser.picture} /></li>)}
+						<li><Login /></li>
+					</ul>
 				</nav>
 				{this.props.children}
 			</div>
