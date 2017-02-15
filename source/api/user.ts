@@ -14,11 +14,12 @@ export interface IUser {
 }
 
 export function getProfile(profile: any): Promise<IUser> {
-	const profileUrl = `api/profile
-				?oauthId=${profile.user_id}
-				&name=${profile.name}
-				&picture=${profile.picture}`;
-	return get(profileUrl);
+	const profileUrl = `api/profile`;
+	return get(profileUrl, {
+		oauthId: profile.user_id,
+		name: profile.name,
+		picture: profile.picture,
+	});
 }
 
 export function getUsers(): Promise<IUser[]> {

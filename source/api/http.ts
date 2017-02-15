@@ -3,8 +3,10 @@ import { getToken, showLogin } from '../login/lock';
 
 const baseUrl = getBaseUrl();
 
-export function get<T>(url: string): Promise<T> {
-	const request = new Request(baseUrl + url, {
+export function get<T>(url: string, queryParams?: any): Promise<T> {
+	const queryString = buildQueryString(queryParams);
+	
+	const request = new Request(baseUrl + url + queryString, {
 		method: 'GET',
 		mode: 'cors',
 		headers: makeAuthHeader(),
@@ -27,6 +29,16 @@ export function makeAuthHeader(): Headers {
 	let headers = new Headers();
 	headers.append('authentication', `Bearer ${getToken()}`);
 	return headers;
+}
+
+function buildQueryString(paramObject: any): string {
+	if (!paramObject) {
+		return '';
+	}
+	
+	const paramNames = Object.keys(paramObject);
+	const params = paramNames.map(name => `${name}=${encodeURIComponent(paramObject[name])}`);
+	return `?${params.join('&')}`;
 }
 
 function onSuccess(response: any): any {
