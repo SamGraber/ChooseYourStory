@@ -34,6 +34,22 @@ img.thumbnail {
 	cursor: pointer;
 }
 
+/* Align nav icons with the text */
+.navbar .nav i {
+	padding: 4px;
+}
+
+.nav-notification {
+	position: relative;
+}
+
+.navbar .nav .notification-active {
+	position: absolute;
+	top: 28px;
+	left: 32px;
+	color: #800;
+}
+
 /* Profile page */
 img.profile-pic {
 	height: 200;
