@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 
-import { get } from './http';
+import { get, post } from './http';
 import { currentUser$ } from './user';
 
 export const notifications$: Observable<INotification[]> = currentUser$.switchMap(user => {
@@ -18,4 +18,9 @@ export interface INotification {
 	type: number;
 	message: string;
 	requesterId: number;
+}
+
+export function addFriend(userId: string, requestedFriendId: string): Promise<INotification> {
+	const url = 'api/friendrequest';
+	return post(url, { userId, requestedFriendId });
 }

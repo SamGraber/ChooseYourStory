@@ -15,6 +15,17 @@ export function get<T>(url: string, queryParams?: any): Promise<T> {
 	return fetch(request).then(onSuccess, onError);
 }
 
+export function post<T>(url: string, body?: any): Promise<T> {
+	const request = new Request(baseUrl + url, {
+		method: 'POST',
+		mode: 'cors',
+		headers: makeAuthHeader(),
+		body: JSON.stringify(body),
+	});
+
+	return fetch(request).then(onSuccess, onError);
+}
+
 export function del(url: string): Promise<void> {
 	const request = new Request(baseUrl + url, {
 		method: 'DELETE',
